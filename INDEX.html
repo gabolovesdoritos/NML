@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No me llamen</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000000;
+      font-family: "Arial", sans-serif;
+      color: #ffffff;
+    }
+    
+    h1 {
+      text-transform: uppercase;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    
+    #countdown {
+      font-size: 36px;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+    
+    #platforms {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    // Fecha objetivo: 2 de septiembre de 2023
+    var countDownDate = new Date("Sep 2, 2023 00:00:00").getTime();
+    
+    // Actualizar el contador cada segundo
+    var countdownFunction = setInterval(function() {
+      // Obtener la fecha y hora actual
+      var now = new Date().getTime();
+      
+      // Calcular la diferencia entre la fecha objetivo y la fecha actual
+      var distance = countDownDate - now;
+      
+      // Calculo de días, horas, minutos y segundos restantes
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Mostrar el contador en el elemento con el id "countdown"
+      document.getElementById("countdown").innerHTML = days + "D " + hours + "H " + minutes + "M " + seconds + "S ";
+      
+      // Si la cuenta regresiva termina, mostrar un mensaje
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "¡Llegó el día!";
+      }
+    }, 1000);
+  </script>
+</head>
+<body>
+  <h2>DIOR GABO LESSAN</h2>
+  <h1>NO ME LLAMEN</h1>
+  <div id="platforms">DISPONIBLE EN TODAS LAS PLATAFORMAS DIGITALES EN:</div>
+  <div id="countdown"></div>
+</body>
+</html>
